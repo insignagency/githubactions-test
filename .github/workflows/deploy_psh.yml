@@ -14,7 +14,8 @@ jobs:
       - name: "Resolve branch_name"
         id: set_branch_name
         run: |
-          branch_name=${github.ref/refs\/heads\//}
+          branch_ref=${{ githubs.ref }}
+          branch_name=${branch_ref/refs\/heads\//}
           echo "::set-output name=branch_name::$branch_name"
       - name: "Some tests"
         run: |
