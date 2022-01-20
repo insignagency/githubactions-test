@@ -17,7 +17,6 @@ jobs:
           branch_name=${branch_ref/refs\/heads\//}
           echo "::set-output name=branch_name::$branch_name"
       - name: "Some tests"
-        id: trigger_ref
         run: |
-          echo ${{ steps.set_branch_name.outputs.branch_name }}
+          echo ${steps.set_branch_name.outputs.branch_name }
           
